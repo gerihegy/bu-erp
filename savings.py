@@ -82,14 +82,19 @@ def start_savings():
 
     while True:
         ui.show_menu(options, "Back to main menu")
-        chosen_option = int(ui.get_input("Please select an option: "))
-        if chosen_option == 1:
-            show_savings()
-        elif chosen_option == 2:
-            add_pocket()
-        elif chosen_option == 3:
-            remove_pocket()
-        elif chosen_option == 4:
-            modify_pocket()
-        elif chosen_option == 0:
-            break
+        try:
+            chosen_option = int(ui.get_input("Please select an option: "))
+            if chosen_option == 1:
+                show_savings()
+            elif chosen_option == 2:
+                add_pocket()
+            elif chosen_option == 3:
+                remove_pocket()
+            elif chosen_option == 4:
+                modify_pocket()
+            elif chosen_option == 0:
+                break
+            else:
+                raise KeyError("No such option")
+        except KeyError as error:
+            ui.print_message(str(error))
