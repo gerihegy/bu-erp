@@ -1,4 +1,15 @@
 
+def show_menu(options, exiting_message):
+    for index, element in enumerate(options, 1):
+        print(f"({index}) {element}")
+    print(f"(0) {exiting_message}")
+
+
+def get_input(label):
+    input_ = input(label)
+    return input_
+
+
 def draw_table_border(full_size, start, finish):
     print("\t"+start, end='')
     for i in range(0, full_size-1):
@@ -13,17 +24,6 @@ def find_max_column_length(table, title_list, column_index):
         if row_length > length:
             length = row_length
     return length
-
-
-def show_menu(options, exiting_message):
-    for index, element in enumerate(options, 1):
-        print(f"({index}) {element}")
-    print(f"(0) {exiting_message}")
-
-
-def get_input(label):
-    input_ = input(label)
-    return input_
 
 
 def show_table(table, title_list):

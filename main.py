@@ -17,7 +17,7 @@ def handle_menu(chosen_option):
 
 
 def main():
-    options = ["elem1", "elem2", "elem3"]
+    options = ["elem1", "Savings", "elem3"]
     ui.show_menu(options, "Exit")
     chosen_option = int(ui.get_input("Choose an option: "))
     handle_menu(chosen_option)
