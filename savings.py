@@ -2,6 +2,14 @@ import ui
 import common
 
 
+def show_savings():
+
+    pockets = common.open_file("pockets.csv")
+    title_list = ["Pocket", "Amount"]
+
+    ui.show_table(pockets, title_list)
+
+
 def add_pocket():
 
     pockets = common.open_file("pockets.csv")
@@ -52,11 +60,9 @@ def modify_pocket():
 def savings_options(chosen_option):
 
     while True:
-        if chosen_option == "1":
-            title_list = ["Name", "Amount"]
-            table = common.open_file("pocets.csv")
-            ui.show_table(table, title_list)
-        elif chosen_option == "2":
+        if chosen_option == 1:
+            show_savings()
+        elif chosen_option == 2:
             add_pocket()
         elif chosen_option == 3:
             remove_pocket()
