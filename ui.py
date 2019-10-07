@@ -5,7 +5,6 @@ def show_menu(options, exiting_message):
     print(f"(0) {exiting_message}")
 
 
-def get_inputs():
-    label = "Choose option: "
-    chosen_option = int(input(label))
-    return chosen_option
+def get_inputs(label):
+    input_ = input(label)
+    return input_
