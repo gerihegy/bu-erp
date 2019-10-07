@@ -1,11 +1,12 @@
 import sys
 import ui
+from entries import entries
 
 
 def handle_menu(chosen_option):
     while True:
         if chosen_option == 1:
-            print("modul1")
+            entries.start_module()
         elif chosen_option == 2:
             print("modul2")
         elif chosen_option == 3:
