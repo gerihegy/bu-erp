@@ -7,7 +7,10 @@ def show_savings():
     pockets = common.open_file("pockets.csv")
     title_list = ["Pocket", "Amount"]
 
-    ui.show_table(pockets, title_list)
+    if pockets:
+        ui.show_table(pockets, title_list)
+    else:
+        ui.print_message("You don't have any savings yet.")
 
 
 def add_pocket():
