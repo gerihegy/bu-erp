@@ -1,9 +1,9 @@
 
-def draw_borders(max_size, end_piece, start_piece):
-    print("\t"+start_piece, end='')
-    for i in range(0, max_size-1):
+def draw_table_border(full_size, start, finish):
+    print("\t"+start, end='')
+    for i in range(0, full_size-1):
         print("-", end='')
-    print(end_piece)
+    print(finish)
 
 
 def find_max_column_length(table, title_list, column_index):
@@ -27,17 +27,17 @@ def get_input(label):
 
 
 def show_table(table, title_list):
-    column_index = 0
+    column_id = 0
     table_size = []
-    for title in title_list:
-        table_size.append(find_max_column_length(table, title_list, column_index))
-        column_index += 1
-    
-    max_size = 0
+    for header in title_list:
+        table_size.append(find_max_column_length(table, title_list, column_id))
+        column_id += 1
+
+    full_size = 0
     for size in table_size:
-        max_size += size+3
-    
-    draw_borders(max_size, "/", "\\")
+        full_size += size+3
+
+    draw_table_border(full_size, "/", "\\")
 
     print("\t|", end='')
     column_id = 0
@@ -48,7 +48,7 @@ def show_table(table, title_list):
     print("")
 
     for row in table:
-        draw_borders(max_size, "|", "|")
+        draw_table_border(full_size, "|", "|")
         print("\t|", end='')
         column_id = 0
         for row_column in row:
@@ -57,7 +57,7 @@ def show_table(table, title_list):
             column_id += 1
         print("")
 
-    draw_borders(max_size, "\\", "/")
+    draw_table_border(full_size, "\\", "/")
     print("")
 
 

@@ -57,9 +57,12 @@ def modify_pocket():
         ui.print_message("Pocket is not found")
 
 
-def savings_options(chosen_option):
+def start_savings():
+    options = ["Show all savings", "Add new pocket", "Remove pocket", "Modify pocket"]
 
     while True:
+        ui.show_menu(options, "Back to main menu")
+        chosen_option = int(ui.get_input("Please select an option: "))
         if chosen_option == 1:
             show_savings()
         elif chosen_option == 2:
@@ -70,12 +73,3 @@ def savings_options(chosen_option):
             modify_pocket()
         elif chosen_option == 0:
             break
-
-
-def start_savings():
-
-    options = ["Show all savings", "Add new pocket", "Remove pocket", "Modify pocket"]
-    ui.show_menu(options, "Back to main menu")
-
-    chosen_option = int(ui.get_input("Please select an option: "))
-    savings_options(chosen_option)
