@@ -1,4 +1,5 @@
 import ui
+import common
 
 
 def add_pocket():
@@ -10,7 +11,21 @@ def add_pocket():
 
     pockets.append([new_pocket_name, new_pocket_amount])
 
-    common.write_to_file(pockets)
+    common.write_to_file("pockets.csv", pockets)
+
+
+def remove_pocket():
+
+    pockets = common.open_file("pockets.csv")
+
+    pocket_name = ui.get_input("Pocket's name: ")
+
+    for pocket in pockets:
+        name = 0
+        if pocket[name] == pocket_name:
+            pockets.remove(pocket)
+
+    common.write_to_file("pockets.csv", pockets)
 
 
 def savings_options(chosen_option):
