@@ -52,11 +52,11 @@ def modify_pocket():
 def savings_options(chosen_option):
 
     while True:
-        if chosen_option == "1":
+        if chosen_option == 1:
             title_list = ["Name", "Amount"]
-            table = common.open_file("pocets.csv")
+            table = common.open_file("pockets.csv")
             ui.show_table(table, title_list)
-        elif chosen_option == "2":
+        elif chosen_option == 2:
             add_pocket()
         elif chosen_option == 3:
             remove_pocket()
