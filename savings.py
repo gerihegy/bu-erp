@@ -31,17 +31,16 @@ def remove_pocket():
 def savings_options(chosen_option):
 
     while True:
-        if chosen_option == 1:
+        if chosen_option == "1":
             show_savings()
-        elif chosen_option == 2:
+        elif chosen_option == "2":
             add_pocket()
-        elif chosen_option == 3:
+        elif chosen_option == "3":
             remove_pocket()
-        elif chosen_option == 4:
+        elif chosen_option == "4":
             modify_pocket()
-        elif chosen_option == 0:
+        elif chosen_option == "0":
             break
-
 
 def start_savings():
 
