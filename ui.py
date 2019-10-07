@@ -1,8 +1,16 @@
+import os
+
+
+def clearscreen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def show_menu(options, exiting_message):
+    clearscreen()
     for index, element in enumerate(options, 1):
         print(f"({index}) {element}")
     print(f"(0) {exiting_message}")
+    print("\n")
 
 
 def get_input(label):

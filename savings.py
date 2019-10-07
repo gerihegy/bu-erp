@@ -4,6 +4,7 @@ import common
 
 def show_savings():
 
+    ui.clearscreen()
     pockets = common.open_file("pockets.csv")
     title_list = ["Pocket", "Amount"]
 
@@ -12,13 +13,17 @@ def show_savings():
     else:
         ui.show_table(pockets, title_list)
 
+    input()
+
 
 def add_pocket():
 
+    ui.clearscreen()
     pockets = common.open_file("pockets.csv")
     if pockets == "File doesn't exist":
         pockets = []
 
+    ui.print_message("Add a new pocket\n")
     new_pocket_name = ui.get_input("Pocket's name: ")
     new_pocket_amount = ui.get_input("Pocket's amount: ")
 
@@ -29,6 +34,7 @@ def add_pocket():
 
 def remove_pocket():
 
+    ui.clearscreen()
     pockets = common.open_file("pockets.csv")
 
     if pockets == "File doesn't exist":
@@ -45,6 +51,7 @@ def remove_pocket():
 
 def modify_pocket():
 
+    ui.clearscreen()
     pockets = common.open_file("pockets.csv")
 
     if pockets == "File doesn't exist":
@@ -70,6 +77,7 @@ def modify_pocket():
 
 def start_savings():
 
+    ui.clearscreen()
     options = ["Show all savings", "Add new pocket", "Remove pocket", "Modify pocket"]
 
     while True:
