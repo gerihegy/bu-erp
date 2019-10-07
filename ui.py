@@ -1,6 +1,5 @@
 
-def show_menu():
-    options = ["elem1", "elem2", "elem3"]
+def show_menu(options):
     for index, element in enumerate(options, 1):
         print(f"({index}) {element}")
     print("(0) Exit")
