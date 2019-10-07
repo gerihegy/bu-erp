@@ -7,15 +7,17 @@ def show_savings():
     pockets = common.open_file("pockets.csv")
     title_list = ["Pocket", "Amount"]
 
-    if pockets:
-        ui.show_table(pockets, title_list)
+    if pockets == "File doesn't exist":
+        ui.print_message("You doesn't have any savings yet.")
     else:
-        ui.print_message("You don't have any savings yet.")
+        ui.show_table(pockets, title_list)
 
 
 def add_pocket():
 
     pockets = common.open_file("pockets.csv")
+    if pockets == "File doesn't exist":
+        pockets = []
 
     new_pocket_name = ui.get_input("Pocket's name: ")
     new_pocket_amount = int(ui.get_input("Pocket's amount: "))
@@ -29,38 +31,49 @@ def remove_pocket():
 
     pockets = common.open_file("pockets.csv")
 
-    pocket_name = ui.get_input("Pocket's name: ")
+    if pockets == "File doesn't exist":
+        ui.print_message("You doesn't have any savings yet.")
 
-    name = 0
-    for pocket in pockets:
-        if pocket[name] == pocket_name:
-            pockets.remove(pocket)
-
-    common.write_to_file("pockets.csv", pockets)
+    else:
+        pocket_name = ui.get_input("Pocket's name: ")
+        name = 0
+        for pocket in pockets:
+            if pocket[name] == pocket_name:
+                pockets.remove(pocket)
+        common.write_to_file("pockets.csv", pockets)
 
 
 def modify_pocket():
 
     pockets = common.open_file("pockets.csv")
 
-    modify = ui.get_input("Pocket's name: ")
-    pocket_name = ui.get_input("Pocket's new name: ")
-    pocket_amount = int(ui.get_input("Pocket's new amount: "))
+    if pockets == "File doesn't exist":
+        ui.print_message("You doesn't have any savings yet.")
 
-    found_name = False
-    name = 0
-    amount = 1
-    for pocket in pockets:
-        if pocket[name] == modify:
-            pocket[name] = pocket_name
-            pocket[amount] = pocket_amount
-            found_name = True
+    else:
+        modify = ui.get_input("Pocket's name: ")
+        pocket_name = ui.get_input("Pocket's new name: ")
+        pocket_amount = int(ui.get_input("Pocket's new amount: "))
 
-    if found_name is False:
-        ui.print_message("Pocket is not found")
+        found_name = False
+        name = 0
+        amount = 1
+        for pocket in pockets:
+            if pocket[name] == modify:
+                pocket[name] = pocket_name
+                pocket[amount] = pocket_amount
+                found_name = True
+
+        if found_name is False:
+            ui.print_message("Pocket is not found")
 
 
-def savings_options(chosen_option):
+def start_savings():
+
+    options = ["Show all savings", "Add new pocket", "Remove pocket", "Modify pocket"]
+    ui.show_menu(options, "Back to main menu")
+
+    chosen_option = int(ui.get_input("Please select an option: "))
 
     while True:
         if chosen_option == 1:
@@ -73,12 +86,3 @@ def savings_options(chosen_option):
             modify_pocket()
         elif chosen_option == 0:
             break
-
-
-def start_savings():
-
-    options = ["Show all savings", "Add new pocket", "Remove pocket", "Modify pocket"]
-    ui.show_menu(options, "Back to main menu")
-
-    chosen_option = int(ui.get_input("Please select an option: "))
-    savings_options(chosen_option)

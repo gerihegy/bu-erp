@@ -1,10 +1,15 @@
+import os
+
 
 def open_file(file_name):
-    data = []
-    with open(file_name, "r") as f:
-        for line in f:
-            data.append(line.split(","))
-    return data
+    if os.path.exists(file_name):
+        data = []
+        with open(file_name, "r") as f:
+            for line in f:
+                data.append(line.split(","))
+        return data
+    else:
+        return "File doesn't exist"
 
 
 def write_to_file(file_name, table):
