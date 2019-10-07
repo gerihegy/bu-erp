@@ -61,5 +61,5 @@ def show_table(table, title_list):
     print("")
 
 
-def print(message):
+def print_message(message):
     print(message)
