@@ -19,5 +19,5 @@ def start_savings():
     options = ["Show all savings", "Add new pocket", "Remove pocket", "Modify pocket"]
     ui.show_menu(options, "Back to main menu")
 
-    chosen_option = ui.get_inputs("Please select an option: ")
+    chosen_option = ui.get_input("Please select an option: ")
     savings_options(chosen_option)
