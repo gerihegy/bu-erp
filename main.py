@@ -1,24 +1,25 @@
 import sys
 import ui
 from entries import entries
+from savings import start_savings
 
 
 def handle_menu(chosen_option):
     while True:
-        if chosen_option == 1:
+        if chosen_option == "1":
             entries.start_module()
-        elif chosen_option == 2:
-            print("modul2")
-        elif chosen_option == 3:
+        elif chosen_option == "2":
+            start_savings()
+        elif chosen_option == "3":
             print("modul3")
-        elif chosen_option == 0:
+        elif chosen_option == "0":
             sys.exit(0)
 
 
 def main():
     options = ["elem1", "elem2", "elem3"]
     ui.show_menu(options, "Exit")
-    chosen_option = ui.get_inputs()
+    chosen_option = ui.get_inputs("Choose an option: ")
     handle_menu(chosen_option)
 
 
