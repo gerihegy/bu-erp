@@ -20,12 +20,33 @@ def remove_pocket():
 
     pocket_name = ui.get_input("Pocket's name: ")
 
+    name = 0
     for pocket in pockets:
-        name = 0
         if pocket[name] == pocket_name:
             pockets.remove(pocket)
 
     common.write_to_file("pockets.csv", pockets)
+
+
+def modify_pocket():
+
+    pockets = common.open_file("pockets.csv")
+
+    modify = ui.get_input("Pocket's name: ")
+    pocket_name = ui.get_input("Pocket's new name: ")
+    pocket_amount = int(ui.get_input("Pocket's new amount: "))
+
+    found_name = False
+    name = 0
+    amount = 1
+    for pocket in pockets:
+        if pocket[name] == modify:
+            pocket[name] = pocket_name
+            pocket[amount] = pocket_amount
+            found_name = True
+
+    if found_name is False:
+        ui.print_message("Pocket is not found")
 
 
 def savings_options(chosen_option):
@@ -41,6 +62,7 @@ def savings_options(chosen_option):
             modify_pocket()
         elif chosen_option == "0":
             break
+
 
 def start_savings():
 
