@@ -6,9 +6,11 @@ def open_file(file_name):
             data.append(line.split(","))
     return data
 
+
 def write_to_file(file_name, table):
     with open(file_name, "w") as f:
         for data in table:
-            row = ",".join(data)
-            f.write(row, "\n")
+            for item in data:
+                row = ",".join(item)
+                f.write(row, "\n")
 

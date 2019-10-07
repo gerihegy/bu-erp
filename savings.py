@@ -1,4 +1,5 @@
 import ui
+import common
 
 
 def add_pocket():
@@ -17,7 +18,9 @@ def savings_options(chosen_option):
 
     while True:
         if chosen_option == "1":
-            show_savings()
+            title_list = ["Name", "Amount"]
+            table = common.open_file("pocets.csv")
+            ui.show_table(table, title_list)
         elif chosen_option == "2":
             add_pocket()
         elif chosen_option == "3":
@@ -26,6 +29,7 @@ def savings_options(chosen_option):
             modify_pocket()
         elif chosen_option == "0":
             break
+
 
 def start_savings():
 
