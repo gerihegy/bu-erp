@@ -9,7 +9,6 @@ def open_file(file_name):
                 line = line[:-1]
                 data.append(line.split(";"))
         return data
-
     else:
         return "File doesn't exist"
 
