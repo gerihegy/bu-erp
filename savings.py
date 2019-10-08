@@ -9,8 +9,10 @@ def show_savings():
     title_list = ["Pocket", "Amount"]
 
     if pockets == "File doesn't exist":
-        ui.print_message("You doesn't have any savings yet.")
+        ui.print_message("\nYou doesn't have any savings yet.")
     else:
+        amount = 1
+        pockets.append(["Total", str(common.sum_column(pockets, amount))])
         ui.show_table(pockets, title_list)
 
     input("Press any key to continue: ")
