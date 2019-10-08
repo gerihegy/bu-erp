@@ -25,3 +25,12 @@ def append_to_file(file_name, table):
         for record in table:
             row = ";".join(record)
             file.write(row + "\n")
+
+
+def sum_column(table, column):
+
+    sum_ = 0
+    for row in table:
+        sum_ += int(row[column])
+
+    return sum_
