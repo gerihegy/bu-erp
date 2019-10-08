@@ -20,7 +20,7 @@ def handle_menu():
 
 def main():
     while True:
-        options = ["elem1", "Savings", "elem3"]
+        options = ["Expense/Income", "Savings", "elem3"]
         ui.show_menu(options, "Exit")
         try:
             handle_menu()
