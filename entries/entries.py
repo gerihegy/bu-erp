@@ -1,18 +1,15 @@
 import ui
 import common
-
-
+import datetime
 
 def start_module():
     ui.clearscreen()
-    expense_list = common.open_file("entries/entries.csv")
-    cost = ui.get_input("What was your last transaction?")
-    category = ui.get_input("What category of expense was it?")
-    print(f'the cost is {cost}, and the cat is:{category}')
-    expense_list.append([cost, category])
-    common.write_to_file("entries.csv", expense_list)
+    expense_list = []
+    date = ui.get_input("Please specify the date:" + "\n")
+    cost = ui.get_input("What was your last transaction?" + "\n")
+    category = ui.get_input("What category of expense was it?" + "\n")
+    expense_list.append([date, cost, category])
+    print(f'Date:{date} the cost is {cost}, and the cat is:{category}')
+    common.append_to_file("entries.csv", expense_list)
 
-    input()
-
-
-        
+    input("Press any key to continue")
