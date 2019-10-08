@@ -1,4 +1,5 @@
 import os
+import ui
 
 
 def open_file(file_name):
@@ -34,3 +35,25 @@ def sum_column(table, column):
         sum_ += int(row[column])
 
     return sum_
+
+
+def remove_row(input_file, output_file, row_name):
+
+    ui.clearscreen()
+    list_ = open_file(input_file)
+
+    if list_ == "File doesn't exist":
+        ui.print_message("File doesn't exist")
+
+    else:
+        input_ = ui.get_input(f"{row_name}'s name: ")
+        name = 0
+        found_row_name = False
+        for row in list_:
+            if row[name] == input_:
+                list_.remove(row)
+                found_row_name = True
+        if found_row_name:
+            write_to_file(output_file, list_)
+        else:
+            ui.print_message(f"\n{row_name} is not found")

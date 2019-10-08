@@ -15,7 +15,7 @@ def show_savings():
         pockets.append(["Total", str(common.sum_column(pockets, amount))])
         ui.show_table(pockets, title_list)
 
-    input("Press any key to continue: ")
+    input("\nPress any key to continue: ")
 
 
 def add_pocket():
@@ -36,19 +36,8 @@ def add_pocket():
 
 def remove_pocket():
 
-    ui.clearscreen()
-    pockets = common.open_file("pockets.csv")
-
-    if pockets == "File doesn't exist":
-        ui.print_message("You doesn't have any savings yet.")
-
-    else:
-        pocket_name = ui.get_input("Pocket's name: ")
-        name = 0
-        for pocket in pockets:
-            if pocket[name] == pocket_name:
-                pockets.remove(pocket)
-        common.write_to_file("pockets.csv", pockets)
+    common.remove_row("pockets.csv", "pockets.csv", "Pocket")
+    input("\nPress any key to continue: ")
 
 
 def modify_pocket():
