@@ -13,7 +13,7 @@ def show_savings():
     else:
         ui.show_table(pockets, title_list)
 
-    input()
+    input("Press any key to continue: ")
 
 
 def add_pocket():
