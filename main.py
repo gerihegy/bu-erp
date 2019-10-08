@@ -7,7 +7,7 @@ import savings
 def handle_menu():
     chosen_option = int(ui.get_input("Choose an option: "))
     if chosen_option == 1:
-        entries.start_module()
+        entries.start_entry_module()
     elif chosen_option == 2:
         savings.start_savings()
     elif chosen_option == 3:

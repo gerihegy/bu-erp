@@ -2,7 +2,22 @@ import ui
 import common
 
 
-def start_module():
+def start_entry_module():
+    while True:
+        options = ["Record daily expense" , "mennyit költöttem  idő alatt?"]
+        ui.show_menu(options, "Back to main menu")
+        try:
+            chosen_option = int(ui.get_input("Please select an option: "))
+            if chosen_option == 1:
+                expense_or_income()
+            elif chosen_option == 0:
+                break
+            else:
+                raise KeyError("No such option")
+        except KeyError as error:
+            ui.print_message(str(error))
+
+def expense_or_income():
     ui.clearscreen()
     expense_list = []
     path = "entries/entries.csv"
